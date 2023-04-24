@@ -60,12 +60,21 @@ La deuxième ligne affiche la phrase "Je dois faire des sauvegardes régulières
     for ($i=0; $i<=12; $i++) {
         echo "<tr>";
         for ($j=0; $j<=12; $j++) {
-            echo "<td>" . ($i*$j) . "</td>";
+            if ($i == 0 && $j == 0) {
+                echo "<td><b>x</b></td>";
+            } else if ($i == 0) {
+                echo "<td><b>$j</b></td>";
+            } else if ($j == 0) {
+                echo "<td><b>$i</b></td>";
+            } else {
+                echo "<td>" . ($i*$j) . "</td>";
+            }
         }
         echo "</tr>";
     }
     ?>
 </table>
+
 
 
 <!-- La ligne 8 crée un tableau HTML avec une bordure de 1 pixel.
