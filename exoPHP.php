@@ -29,39 +29,13 @@ La deuxième ligne affiche la phrase "Je dois faire des sauvegardes régulières
     <title>Table de multiplication</title>
 </head>
 <body>
-    <table border="1">
-        <?php
-        for ($i = 0; $i <= 12; $i++) {
-            echo "<tr>";
-            for ($j = 0; $j <= 12; $j++) {
-                if ($i == 0 && $j == 0) {
-                    echo "<td></td>";
-                } elseif ($i == 0) {
-                    echo "<td>$j</td>";
-                } elseif ($j == 0) {
-                    echo "<td>$i</td>";
-                } elseif ($i == 0 && $j == 0) {
-                    echo "<td>0</td>";
-                } else {
-                    echo "<td>" . $i * $j . "</td>";
-                }
-            }
-            echo "</tr>";
-        }
-        ?>
-    </table>
-</body>
-</html>
-
-----------------
-
 <table border="1">
     <?php
     for ($i=0; $i<=12; $i++) {
         echo "<tr>";
         for ($j=0; $j<=12; $j++) {
             if ($i == 0 && $j == 0) {
-                echo "<td><b>x</b></td>";
+                echo "<td><b></b></td>";
             } else if ($i == 0) {
                 echo "<td><b>$j</b></td>";
             } else if ($j == 0) {
@@ -74,13 +48,12 @@ La deuxième ligne affiche la phrase "Je dois faire des sauvegardes régulières
     }
     ?>
 </table>
-
-
-
-<!-- La ligne 8 crée un tableau HTML avec une bordure de 1 pixel.
+</body>
+</html>
+<!-- On crée un tableau HTML avec une bordure de 1 pixel.
 La boucle "for" créer des lignes et des colonnes dans le tableau.
-Les lignes 10 à 18 créent une ligne de tableau et une boucle imbriquée pour créer chaque cellule dans la ligne.
+On créer une ligne de tableau et une boucle imbriquée pour créer chaque cellule dans la ligne.
 La condition "if" à la ligne 12 vérifie si le programme est en train de créer la première cellule du tableau 
 (ligne et colonne égales à 0). Si oui, la cellule est simplement laissée vide avec la balise "<td></td>".
-Les conditions "elseif" à la ligne 14 et 17 vérifient si la boucle est en train de créer la première ligne ou la première colonne du tableau.
+Les conditions "elseif" vérifient si la boucle est en train de créer la première ligne ou la première colonne du tableau.
 La condition "else" applique à toutes les autres cellules et affiche le produit de la valeur de la ligne et de la colonne correspondantes. -->
