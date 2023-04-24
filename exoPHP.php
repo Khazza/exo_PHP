@@ -40,6 +40,8 @@ La deuxième ligne affiche la phrase "Je dois faire des sauvegardes régulières
                     echo "<td>$j</td>";
                 } elseif ($j == 0) {
                     echo "<td>$i</td>";
+                } elseif ($i == 0 && $j == 0) {
+                    echo "<td>0</td>";
                 } else {
                     echo "<td>" . $i * $j . "</td>";
                 }
@@ -50,6 +52,7 @@ La deuxième ligne affiche la phrase "Je dois faire des sauvegardes régulières
     </table>
 </body>
 </html>
+
 <!-- La ligne 8 crée un tableau HTML avec une bordure de 1 pixel.
 La boucle "for" créer des lignes et des colonnes dans le tableau.
 Les lignes 10 à 18 créent une ligne de tableau et une boucle imbriquée pour créer chaque cellule dans la ligne.
