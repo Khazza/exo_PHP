@@ -5,7 +5,7 @@ for ($i = 1; $i <= 150; $i+=2) {
     echo $i . " ";
 }
 ?>
-<!-- La première ligne commence une boucle "for" qui initialise la variable $i à 1, définit une condition pour continuer 
+<!--Une boucle "for" qui initialise la variable $i à 1, définit une condition pour continuer 
 la boucle tant que $i est inférieur ou égal à 150, et ajoute 2 à $i à chaque tour de boucle.
 La deuxième ligne affiche la valeur actuelle de $i suivie d'un espace. -->
 
@@ -16,7 +16,7 @@ for ($i = 1; $i <= 500; $i++) {
     echo $i . ": Je dois faire des sauvegardes régulières de mes fichiers<br>";
 }
 ?>
-<!-- La première ligne commence une boucle "for" qui initialise la variable $i à 1, 
+<!--Une boucle "for" qui initialise la variable $i à 1, 
 définit une condition pour continuer la boucle tant que $i est inférieur ou égal à 500, et ajoute 1 à $i.
 La deuxième ligne affiche la phrase "Je dois faire des sauvegardes régulières de mes fichiers". -->
 
