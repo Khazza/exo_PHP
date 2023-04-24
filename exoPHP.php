@@ -53,6 +53,21 @@ La deuxième ligne affiche la phrase "Je dois faire des sauvegardes régulières
 </body>
 </html>
 
+----------------
+
+<table border="1">
+    <?php
+    for ($i=0; $i<=12; $i++) {
+        echo "<tr>";
+        for ($j=0; $j<=12; $j++) {
+            echo "<td>" . ($i*$j) . "</td>";
+        }
+        echo "</tr>";
+    }
+    ?>
+</table>
+
+
 <!-- La ligne 8 crée un tableau HTML avec une bordure de 1 pixel.
 La boucle "for" créer des lignes et des colonnes dans le tableau.
 Les lignes 10 à 18 créent une ligne de tableau et une boucle imbriquée pour créer chaque cellule dans la ligne.
