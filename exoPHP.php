@@ -50,6 +50,28 @@ La deuxième ligne affiche la phrase "Je dois faire des sauvegardes régulières
 </table>
 </body>
 </html>
+
+------ 
+
+<table border="1">
+    <?php
+    for ($i=0; $i<=12; $i++) {
+        echo "<tr>";
+        for ($j=0; $j<=12; $j++) {
+            if ($i == 0 && $j == 0) {
+                echo "<td><b></b></td>";
+            } else if ($i == 0 || $j == 0) {
+                echo "<td><b>" . ($i+$j) . "</b></td>";
+            } else {
+                echo "<td>" . ($i*$j) . "</td>";
+            }
+        }
+        echo "</tr>";
+    }
+    ?>
+</table>
+
+
 <!-- On crée un tableau HTML avec une bordure de 1 pixel.
 La boucle "for" créer des lignes et des colonnes dans le tableau.
 On créer une ligne de tableau et une boucle imbriquée pour créer chaque cellule dans la ligne.
