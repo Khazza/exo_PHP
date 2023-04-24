@@ -6,14 +6,14 @@
 <body>
 <table border="1">
     <?php
-    for ($i=0; $i<=12; $i++) {
+    for ($i=-1; $i<=12; $i++) {
         echo "<tr>";
-        for ($j=0; $j<=12; $j++) {
-            if ($i == 0 && $j == 0) {
+        for ($j=-1; $j<=12; $j++) {
+            if ($i == -1 && $j == -1) {
                 echo "<td><b></b></td>";
-            } else if ($i == 0) {
+            } else if ($i == -1) {
                 echo "<td><b>$j</b></td>";
-            } else if ($j == 0) {
+            } else if ($j == -1) {
                 echo "<td><b>$i</b></td>";
             } else {
                 echo "<td>" . ($i*$j) . "</td>";
