@@ -1,5 +1,5 @@
-<!-- Exercices:
-    Ecrire un script PHP qui affiche tous les nombres impairs entre 0 et 150, par ordre croissant : 1 3 5 7... :-->
+<!-- Exercices PHP - Les boucles: -->
+<!--Ecrire un script PHP qui affiche tous les nombres impairs entre 0 et 150, par ordre croissant : 1 3 5 7... :-->
 <?php
 for ($i = 1; $i <= 150; $i+=2) {
     echo $i . " ";
@@ -50,28 +50,6 @@ La deuxième ligne affiche la phrase "Je dois faire des sauvegardes régulières
 </table>
 </body>
 </html>
-
------- 
-
-<table border="1">
-    <?php
-    for ($i=0; $i<=12; $i++) {
-        echo "<tr>";
-        for ($j=0; $j<=12; $j++) {
-            if ($i == 0 && $j == 0) {
-                echo "<td><b></b></td>";
-            } else if ($i == 0 || $j == 0) {
-                echo "<td><b>" . ($i+$j) . "</b></td>";
-            } else {
-                echo "<td>" . ($i*$j) . "</td>";
-            }
-        }
-        echo "</tr>";
-    }
-    ?>
-</table>
-
-
 <!-- On crée un tableau HTML avec une bordure de 1 pixel.
 La boucle "for" créer des lignes et des colonnes dans le tableau.
 On créer une ligne de tableau et une boucle imbriquée pour créer chaque cellule dans la ligne.
@@ -79,3 +57,10 @@ La condition "if" à la ligne 12 vérifie si le programme est en train de créer
 (ligne et colonne égales à 0). Si oui, la cellule est simplement laissée vide avec la balise "<td></td>".
 Les conditions "elseif" vérifient si la boucle est en train de créer la première ligne ou la première colonne du tableau.
 La condition "else" applique à toutes les autres cellules et affiche le produit de la valeur de la ligne et de la colonne correspondantes. -->
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- Exercices PHP - Les tableaux: -->

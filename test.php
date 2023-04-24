@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table de multiplication</title>
+</head>
+<body>
 <table border="1">
     <?php
     for ($i=0; $i<=12; $i++) {
@@ -17,3 +23,5 @@
     }
     ?>
 </table>
+</body>
+</html>
