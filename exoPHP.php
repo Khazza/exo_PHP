@@ -359,7 +359,6 @@ Si toutes les règles sont respectées, la fonction retourne true. -->
     5- Affichez l'heure courante sous cette forme : 11h25.
     6- Ajoutez 1 mois à la date courante.
     7- Que s'est-il passé le 1000200000 ? -->
-
 <?php
 // 1- Trouver le numéro de semaine de la date suivante : 14/07/2019.
 $date = new DateTime('2019-07-14');
@@ -383,7 +382,8 @@ if ($isLeap == 1) {
 
 // 4- Montrez que la date du 32/17/2019 est erronée.
 $date = DateTime::createFromFormat('d/m/Y', '32/17/2019');
-if (!$date) {
+$errors = DateTime::getLastErrors();
+if (!empty($errors['warning_count'])) {
     echo "La date 32/17/2019 est erronée.<br>";
 }
 
@@ -400,15 +400,20 @@ echo "Dans un mois, nous serons le " . $date->format('d/m/Y') . ".<br>";
 $date = new DateTime('@1000200000');
 echo "Le 1000200000 correspond au " . $date->format('d/m/Y à H\hi\ms') . ".<br>";
 ?>
-Explications :
+<!-- Explications :
+1- On crée un objet DateTime pour la date demandée, puis on utilise la méthode format avec le paramètre 'W' pour récupérer le numéro de semaine.
 
-On crée un objet DateTime pour la date demandée, puis on utilise la méthode format avec le paramètre 'W' pour récupérer le numéro de semaine.
-On crée un objet DateTime pour la date courante, puis un autre objet pour la date de fin de formation. Ensuite, on utilise la méthode diff pour calculer la différence entre les deux dates, puis on utilise la méthode format pour récupérer le nombre de jours restants.
-On définit une année, puis on utilise la fonction date avec le paramètre "L" pour déterminer si elle est bissextile. La fonction renvoie 1 si l'année est bissextile, et 0 sinon.
-On utilise la méthode statique createFromFormat de la classe DateTime pour créer un objet à partir d'une date au format d/m/Y. Si la date est erronée, la méthode renvoie false.
-On crée un objet DateTime pour l'heure courante, puis on utilise la méthode format avec le format 'H\hi' pour l'afficher sous la forme demandée.
+2- On crée un objet DateTime pour la date courante, puis un autre objet pour la date de fin de formation. 
+Ensuite, on utilise la méthode diff pour calculer la différence entre les deux dates, 
+puis on utilise la méthode format pour récupérer le nombre de jours restants.
 
+3- On définit une année, puis on utilise la fonction date avec le paramètre "L" pour déterminer si elle est bissextile. 
+La fonction renvoie 1 si l'année est bissextile, et 0 sinon.
 
+4- On utilise la méthode statique createFromFormat de la classe DateTime pour créer un objet à partir d'une date au format d/m/Y. 
+Si la date est erronée, la méthode renvoie false.
+
+5- On crée un objet DateTime pour l'heure courante, puis on utilise la méthode format avec le format 'H\hi' pour l'afficher sous la forme demandée. -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
