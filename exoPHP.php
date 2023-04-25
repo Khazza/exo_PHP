@@ -400,7 +400,13 @@ echo "Dans un mois, nous serons le " . $date->format('d/m/Y') . ".<br>";
 $date = new DateTime('@1000200000');
 echo "Le 1000200000 correspond au " . $date->format('d/m/Y à H\hi\ms') . ".<br>";
 ?>
+Explications :
 
+On crée un objet DateTime pour la date demandée, puis on utilise la méthode format avec le paramètre 'W' pour récupérer le numéro de semaine.
+On crée un objet DateTime pour la date courante, puis un autre objet pour la date de fin de formation. Ensuite, on utilise la méthode diff pour calculer la différence entre les deux dates, puis on utilise la méthode format pour récupérer le nombre de jours restants.
+On définit une année, puis on utilise la fonction date avec le paramètre "L" pour déterminer si elle est bissextile. La fonction renvoie 1 si l'année est bissextile, et 0 sinon.
+On utilise la méthode statique createFromFormat de la classe DateTime pour créer un objet à partir d'une date au format d/m/Y. Si la date est erronée, la méthode renvoie false.
+On crée un objet DateTime pour l'heure courante, puis on utilise la méthode format avec le format 'H\hi' pour l'afficher sous la forme demandée.
 
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
