@@ -113,103 +113,18 @@ On utilise la fonction asort() pour trier le tableau par ordre croissant du nomb
 On affiche à nouveau le tableau trié dans un tableau HTML.
 Note : Ce tableau ne tient pas compte de l'année bissextile. -->
 
+
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
-$capitales = array(
-    "Bucarest" => "Roumanie",
-    "Bruxelles" => "Belgique",
-    "Oslo" => "Norvège",
-    "Ottawa" => "Canada",
-    "Paris" => "France",
-    "Port-au-Prince" => "Haïti",
-    "Port-d'Espagne" => "Trinité-et-Tobago",
-    "Prague" => "République tchèque",
-    "Rabat" => "Maroc",
-    "Riga" => "Lettonie",
-    "Rome" => "Italie",
-    "San José" => "Costa Rica",
-    "Santiago" => "Chili",
-    "Sofia" => "Bulgarie",
-    "Alger" => "Algérie",
-    "Amsterdam" => "Pays-Bas",
-    "Andorre-la-Vieille" => "Andorre",
-    "Asuncion" => "Paraguay",
-    "Athènes" => "Grèce",
-    "Bagdad" => "Irak",
-    "Bamako" => "Mali",
-    "Berlin" => "Allemagne",
-    "Bogota" => "Colombie",
-    "Brasilia" => "Brésil",
-    "Bratislava" => "Slovaquie",
-    "Varsovie" => "Pologne",
-    "Budapest" => "Hongrie",
-    "Le Caire" => "Egypte",
-    "Canberra" => "Australie",
-    "Caracas" => "Venezuela",
-    "Jakarta" => "Indonésie",
-    "Kiev" => "Ukraine",
-    "Kigali" => "Rwanda",
-    "Kingston" => "Jamaïque",
-    "Lima" => "Pérou",
-    "Londres" => "Royaume-Uni",
-    "Madrid" => "Espagne",
-    "Malé" => "Maldives",
-    "Mexico" => "Mexique",
-    "Minsk" => "Biélorussie",
-    "Moscou" => "Russie",
-    "Nairobi" => "Kenya",
-    "New Delhi" => "Inde",
-    "Stockholm" => "Suède",
-    "Téhéran" => "Iran",
-    "Tokyo" => "Japon",
-    "Tunis" => "Tunisie",
-    "Copenhague" => "Danemark",
-    "Dakar" => "Sénégal",
-    "Damas" => "Syrie",
-    "Dublin" => "Irlande",
-    "Erevan" => "Arménie",
-    "La Havane" => "Cuba",
-    "Helsinki" => "Finlande",
-    "Islamabad" => "Pakistan",
-    "Vienne" => "Autriche",
-    "Vilnius" => "Lituanie",
-    "Zagreb" => "Croatie"
-);
+<!-- 1-Affichez la liste des capitales (par ordre alphabétique) suivie du nom du pays.
+2-Affichez la liste des pays (par ordre alphabétique) suivie du nom de la capitale.
+3-Affichez le nombre de pays dans le tableau.
+4-Supprimer du tableau toutes les capitales commençant par la lettre 'B', puis affichez le contenu du tableau. -->
 
-// Afficher la liste des capitales suivie du nom du pays
-asort($capitales); // trier le tableau par ordre alphabétique des capitales
-foreach ($capitales as $capitale => $pays) {
-    echo "$capitale - $pays <br>";
-}
-
-echo "<br>";
-
-// Afficher la liste des pays suivie du nom de la capitale
-sort($capitales); // trier le tableau par ordre alphabétique des pays
-foreach ($capitales as $capitale => $pays) {
-    echo "$pays - $capitale <br>";
-}
-
-echo "<br>";
-
-// Afficher le nombre de pays dans le tableau
-echo "Nombre de pays dans le tableau : " . count($capitales) . "<br>";
-
-echo "<br>";
-
-// Supprimer du tableau toutes les capitales commençant par la lettre 'B'
-foreach ($capitales as $capitale => $pays) {
-    if (substr($capitale, 0, 1) == "B") {
-        unset($capitales[$capitale]);
-    }
-}
-
-// Afficher le contenu du tableau après suppression
-foreach ($capitales as $capitale => $pays) {
-    echo "$capitale - $pays <br>";
-}
 
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- Affichez la liste des régions (par ordre alphabétique) suivie du nom des départements
+Affichez la liste des régions suivie du nombre de départements -->
 <?php
 $departements = array(
     "Hauts-de-france" => array("Aisne", "Nord", "Oise", "Pas-de-Calais", "Somme"),
@@ -225,10 +140,9 @@ foreach ($departements as $region => $dep_list) {
     echo implode(", ", $dep_list);
     echo "<br>";
 }
-?>
 
+echo "<br>";
 
-<?php
 $departements = array(
     "Hauts-de-france" => array("Aisne", "Nord", "Oise", "Pas-de-Calais", "Somme"),
     "Bretagne" => array("Côtes d'Armor", "Finistère", "Ille-et-Vilaine", "Morbihan"),
