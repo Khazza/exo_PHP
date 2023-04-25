@@ -353,22 +353,92 @@ Si toutes les règles sont respectées, la fonction retourne true. -->
 <!-- Exercices
     Utilisez l'objet DateTime, sauf mention contraire.
     1- Trouvez le numéro de semaine de la date suivante : 14/07/2019.
-
-
     2- Combien reste-t-il de jours avant la fin de votre formation ?
-
-
     3- Comment déterminer si une année est bissextile ?
-
-
     4- Montrez que la date du 32/17/2019 est erronée.
-
-
     5- Affichez l'heure courante sous cette forme : 11h25.
-
-
     6- Ajoutez 1 mois à la date courante.
-
-
     7- Que s'est-il passé le 1000200000 ? -->
-    
+
+<?php
+// 1- Trouver le numéro de semaine de la date suivante : 14/07/2019.
+$date = new DateTime('2019-07-14');
+$weekNumber = $date->format('W');
+echo "Le numéro de semaine de la date 14/07/2019 est : " . $weekNumber . "<br>";
+
+// 2- Combien reste-t-il de jours avant la fin de votre formation ?
+$today = new DateTime();
+$endFormation = new DateTime('2023-06-02');
+$remainingDays = $today->diff($endFormation)->format('%a');
+echo "Il reste " . $remainingDays . " jours avant la fin de ma formation.<br>";
+
+// 3- Comment déterminer si une année est bissextile ?
+$year = 2024;
+$isLeap = date("L", strtotime("$year-01-01"));
+if ($isLeap == 1) {
+    echo "L'année " . $year . " est bissextile.<br>";
+} else {
+    echo "L'année " . $year . " n'est pas bissextile.<br>";
+}
+
+// 4- Montrez que la date du 32/17/2019 est erronée.
+$date = DateTime::createFromFormat('d/m/Y', '32/17/2019');
+if (!$date) {
+    echo "La date 32/17/2019 est erronée.<br>";
+}
+
+// 5- Affichez l'heure courante sous cette forme : 11h25.
+$heure = new DateTime();
+echo "Il est actuellement " . $heure->format('H\hi') . ".<br>";
+
+// 6- Ajoutez 1 mois à la date courante.
+$date = new DateTime();
+$date->add(new DateInterval('P1M'));
+echo "Dans un mois, nous serons le " . $date->format('d/m/Y') . ".<br>";
+
+// 7- Que s'est-il passé le 1000200000 ?
+$date = new DateTime('@1000200000');
+echo "Le 1000200000 correspond au " . $date->format('d/m/Y à H\hi\ms') . ".<br>";
+?>
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- PHP - Les formulaires et les variables serveur -->
+<?php
+// Vérifie si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Récupère les valeurs des champs du formulaire
+  $nom = $_POST["nom"];
+  $email = $_POST["email"];
+  $message = $_POST["message"];
+  
+  // Affiche les valeurs des champs
+  echo "Nom: " . $nom . "<br>";
+  echo "Email: " . $email . "<br>";
+  echo "Message: " . $message . "<br>";
+}
+?>
+Dans cet exemple, nous avons supposé que les noms des champs du formulaire sont "nom", "email" et "message". Vous pouvez modifier ces noms en fonction de vos besoins.
+
+Pour utiliser ce script, vous devez le sauvegarder dans un fichier avec l'extension ".php" et le téléverser sur votre serveur. 
+Ensuite, vous devez modifier l'attribut "action" de la balise "form" pour qu'il pointe vers l'URL de votre script PHP.
+
+Par exemple :
+<form action="monscript.php" method="post">
+  <label for="nom">Nom :</label>
+  <input type="text" id="nom" name="nom"><br>
+
+  <label for="email">Email :</label>
+  <input type="email" id="email" name="email"><br>
+
+  <label for="message">Message :</label>
+  <textarea id="message" name="message"></textarea><br>
+
+  <input type="submit" value="Envoyer">
+</form>
+Dans cet exemple, l'attribut "action" de la balise "form" pointe vers le fichier "monscript.php". 
+L'attribut "method" de la balise "form" est défini sur "post" pour que les valeurs des champs soient envoyées dans le corps de la requête HTTP.
