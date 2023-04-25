@@ -414,6 +414,8 @@ La fonction renvoie 1 si l'année est bissextile, et 0 sinon.
 Si la date est erronée, la méthode renvoie false.
 
 5- On crée un objet DateTime pour l'heure courante, puis on utilise la méthode format avec le format 'H\hi' pour l'afficher sous la forme demandée. -->
+
+
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
@@ -424,32 +426,26 @@ Si la date est erronée, la méthode renvoie false.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Récupère les valeurs des champs du formulaire
   $nom = $_POST["nom"];
+  $prenom = $_POST["prenom"];
+  $genre = $_POST["genre"];
+  $date = $_POST["date"];
+  $cp = $_POST["cp"];
+  $adresse = $_POST["adresse"];
+  $ville = $_POST["ville"];
   $email = $_POST["email"];
-  $message = $_POST["message"];
   
   // Affiche les valeurs des champs
   echo "Nom: " . $nom . "<br>";
+  echo "Prenom: " . $prenom . "<br>";
+  echo "Sexe: " . $genre . "<br>";
+  echo "Date de naissance: " . $date . "<br>";
+  echo "Code Postal: " . $cp . "<br>";
+  echo "Adresse: " . $adresse . "<br>";
+  echo "Ville: " . $ville . "<br>";
   echo "Email: " . $email . "<br>";
-  echo "Message: " . $message . "<br>";
 }
 ?>
-Dans cet exemple, nous avons supposé que les noms des champs du formulaire sont "nom", "email" et "message". Vous pouvez modifier ces noms en fonction de vos besoins.
-
 Pour utiliser ce script, vous devez le sauvegarder dans un fichier avec l'extension ".php" et le téléverser sur votre serveur. 
 Ensuite, vous devez modifier l'attribut "action" de la balise "form" pour qu'il pointe vers l'URL de votre script PHP.
-
-Par exemple :
-<form action="monscript.php" method="post">
-  <label for="nom">Nom :</label>
-  <input type="text" id="nom" name="nom"><br>
-
-  <label for="email">Email :</label>
-  <input type="email" id="email" name="email"><br>
-
-  <label for="message">Message :</label>
-  <textarea id="message" name="message"></textarea><br>
-
-  <input type="submit" value="Envoyer">
-</form>
 Dans cet exemple, l'attribut "action" de la balise "form" pointe vers le fichier "monscript.php". 
 L'attribut "method" de la balise "form" est défini sur "post" pour que les valeurs des champs soient envoyées dans le corps de la requête HTTP.
