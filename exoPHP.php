@@ -251,3 +251,91 @@ foreach ($departements as $region => $dep_list) {
     echo " départements<br>";
 }
 ?>
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- Exercices PHP - Les fonctions : -->
+<!--Ecrivez une fonction qui permette de générer un lien.
+La fonction doit prendre deux paramètres, le lien et le titre
+ lien("https://www.reddit.com/", "Reddit Hug");
+Appelée de cette façon, la fonction doit générer
+<a href="https://www.reddit.com/">Reddit Hug</a> -->
+<?php
+function lien($url, $titre) {
+    echo '<a href="' . $url . '">' . $titre . '</a>';
+}
+
+echo lien("https://www.reddit.com/", "Reddit Hug");
+
+<a href="https://www.reddit.com/">Reddit Hug</a>
+?>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- Ecrivez une fonction qui calcul la somme des valeurs d'un tableau
+La fonction doit prendre un paramètre de type tableau
+ $tab = array(4, 3, 8, 2);
+ $resultat = somme($tab);
+$resultat doit contenir 17 -->
+<?php
+function somme($tableau) {
+    $somme = 0;
+    foreach ($tableau as $valeur) {
+      $somme += $valeur;
+    }
+    return $somme;
+  }
+  
+  $tab = array(4, 3, 8, 2);
+$resultat = somme($tab);
+echo $resultat; // Affiche 17
+
+?>
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- Créer une fonction qui vérifie le niveau de complexité d'un mot de passe
+Elle doit prendra un paramètre de type chaîne de caractères. Elle retournera une valeur booléenne qui vaut true si le paramètre (le mot de passe) respecte les règles suivantes :
+
+Faire au moins 8 caractères de long
+Avoir au moins 1 chiffre
+Avoir au moins une majuscule et une minuscule
+$resultat = complex_password("TopSecret42");
+$resultat doit contenir true.
+
+Aidez-vous des expressions régulières ! -->
+<?php
+function complex_password($password) {
+  // Vérifie si le mot de passe a au moins 8 caractères
+  if (strlen($password) < 8) {
+    return false;
+  }
+
+  // Vérifie si le mot de passe contient au moins un chiffre
+  if (!preg_match('/\d/', $password)) {
+    return false;
+  }
+
+  // Vérifie si le mot de passe contient au moins une majuscule et une minuscule
+  if (!preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password)) {
+    return false;
+  }
+
+  // Si toutes les règles sont respectées, retourne true
+  return true;
+}
+
+// Test de la fonction
+$password = "TopSecret42";
+$resultat = complex_password($password);
+var_dump($resultat); // Doit afficher bool(true)
+?>
+
+<!-- Explication de la fonction :
+La fonction complex_password() prend un paramètre $password qui est le mot de passe à vérifier. 
+Elle commence par vérifier si le mot de passe a au moins 8 caractères en utilisant la fonction strlen(). Si ce n'est pas le cas, la fonction retourne false.
+Ensuite, la fonction utilise des expressions régulières pour vérifier si le mot de passe contient au moins un chiffre (\d), 
+une majuscule ([A-Z]) et une minuscule ([a-z]). Si l'une de ces conditions n'est pas respectée, la fonction retourne false.
+Si toutes les règles sont respectées, la fonction retourne true. -->
