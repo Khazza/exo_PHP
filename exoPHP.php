@@ -428,11 +428,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $nom = $_POST["nom"];
   $prenom = $_POST["prenom"];
   $genre = $_POST["genre"];
-  $date = $_POST["date"];
+  $date = $_POST["ddn"];
   $cp = $_POST["cp"];
   $adresse = $_POST["adresse"];
   $ville = $_POST["ville"];
   $email = $_POST["email"];
+  $sujet = $_POST["sujet"];
+  $commentaire = $_POST["commentaire"];
   
   // Affiche les valeurs des champs
   echo "Nom: " . $nom . "<br>";
@@ -443,9 +445,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   echo "Adresse: " . $adresse . "<br>";
   echo "Ville: " . $ville . "<br>";
   echo "Email: " . $email . "<br>";
+  echo "Sujet: " . $sujet . "<br>";
+  echo "Commentaire: " . $commentaire . "<br>";
 }
 ?>
-Pour utiliser ce script, vous devez le sauvegarder dans un fichier avec l'extension ".php" et le téléverser sur votre serveur. 
-Ensuite, vous devez modifier l'attribut "action" de la balise "form" pour qu'il pointe vers l'URL de votre script PHP.
-Dans cet exemple, l'attribut "action" de la balise "form" pointe vers le fichier "monscript.php". 
-L'attribut "method" de la balise "form" est défini sur "post" pour que les valeurs des champs soient envoyées dans le corps de la requête HTTP.
