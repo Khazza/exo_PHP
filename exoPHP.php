@@ -119,7 +119,52 @@ Note : Ce tableau ne tient pas compte de l'année bissextile. -->
 2-Affichez la liste des pays (par ordre alphabétique) suivie du nom de la capitale.
 3-Affichez le nombre de pays dans le tableau.
 4-Supprimer du tableau toutes les capitales commençant par la lettre 'B', puis affichez le contenu du tableau. -->
+<?php
+// Tableau des capitales
+$capitales = array(
+    "Bucarest" => "Roumanie",
+    "Bruxelles" => "Belgique",
+    "Oslo" => "Norvège",
+    "Ottawa" => "Canada",
+    "Paris" => "France",
+    "Vienne" => "Autriche",
+    "Vilnius" => "Lituanie",
+    "Zagreb" => "Croatie"
+);
 
+// 1. Affichez la liste des capitales (par ordre alphabétique) suivie du nom du pays.
+// Trier le tableau par ordre alphabétique en utilisant la fonction 'asort()'
+asort($capitales);
+// Parcourir le tableau avec une boucle foreach pour afficher chaque capitale et son pays correspondant
+foreach($capitales as $capitale => $pays) {
+    echo "$capitale - $pays <br>";
+}
+
+// 2. Affichez la liste des pays (par ordre alphabétique) suivie du nom de la capitale.
+// Trier le tableau par ordre alphabétique en utilisant la fonction 'asort()'
+asort($capitales);
+// Parcourir le tableau avec une boucle foreach pour afficher chaque pays et sa capitale correspondante
+foreach($capitales as $capitale => $pays) {
+    echo "$pays - $capitale <br>";
+}
+
+// 3. Affichez le nombre de pays dans le tableau.
+// Utiliser la fonction 'count()' pour compter le nombre de pays dans le tableau
+$nbPays = count($capitales);
+echo "Il y a $nbPays pays dans le tableau. <br>";
+
+// 4. Supprimer du tableau toutes les capitales commençant par la lettre 'B', puis affichez le contenu du tableau.
+// Parcourir le tableau avec une boucle foreach pour identifier les capitales commençant par 'B' et les supprimer avec 'unset()'
+foreach($capitales as $capitale => $pays) {
+    if(substr($capitale, 0, 1) === 'B') {
+        unset($capitales[$capitale]);
+    }
+}
+// Afficher le contenu du tableau modifié
+foreach($capitales as $capitale => $pays) {
+    echo "$pays - $capitale <br>";
+}
+?>
 
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
