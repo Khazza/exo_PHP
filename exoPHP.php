@@ -257,7 +257,7 @@ foreach ($departements as $region => $dep_list) {
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
-<!-- Exercices PHP - Les fonctions : -->
+<!--Exercices PHP - Les fonctions : -->
 <!--Ecrivez une fonction qui permette de générer un lien.
 La fonction doit prendre deux paramètres, le lien et le titre
  lien("https://www.reddit.com/", "Reddit Hug");
@@ -265,12 +265,10 @@ Appelée de cette façon, la fonction doit générer
 <a href="https://www.reddit.com/">Reddit Hug</a> -->
 <?php
 function lien($url, $titre) {
-    echo '<a href="' . $url . '">' . $titre . '</a>';
+    return '<a href="' . $url . '">' . $titre . '</a>';
 }
 
 echo lien("https://www.reddit.com/", "Reddit Hug");
-
-<a href="https://www.reddit.com/">Reddit Hug</a>
 ?>
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
@@ -297,7 +295,8 @@ echo $resultat; // Affiche 17
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- Créer une fonction qui vérifie le niveau de complexité d'un mot de passe
-Elle doit prendra un paramètre de type chaîne de caractères. Elle retournera une valeur booléenne qui vaut true si le paramètre (le mot de passe) respecte les règles suivantes :
+Elle doit prendra un paramètre de type chaîne de caractères. Elle retournera une valeur booléenne qui vaut true si le paramètre (le mot de passe) 
+respecte les règles suivantes :
 
 Faire au moins 8 caractères de long
 Avoir au moins 1 chiffre
@@ -306,6 +305,7 @@ $resultat = complex_password("TopSecret42");
 $resultat doit contenir true.
 
 Aidez-vous des expressions régulières ! -->
+
 <?php
 function complex_password($password) {
   // Vérifie si le mot de passe a au moins 8 caractères
@@ -331,6 +331,10 @@ function complex_password($password) {
 $password = "TopSecret42";
 $resultat = complex_password($password);
 var_dump($resultat); // Doit afficher bool(true)
+if ($resultat)
+echo "Mot de passe ok"; 
+else
+echo "Mot de passe incorrect" 
 ?>
 
 <!-- Explication de la fonction :
@@ -339,3 +343,9 @@ Elle commence par vérifier si le mot de passe a au moins 8 caractères en utili
 Ensuite, la fonction utilise des expressions régulières pour vérifier si le mot de passe contient au moins un chiffre (\d), 
 une majuscule ([A-Z]) et une minuscule ([a-z]). Si l'une de ces conditions n'est pas respectée, la fonction retourne false.
 Si toutes les règles sont respectées, la fonction retourne true. -->
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
