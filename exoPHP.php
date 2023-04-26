@@ -449,3 +449,80 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   echo "Commentaire: " . $commentaire . "<br>";
 }
 ?>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- PHP - Les dates et les heures -->
+<!-- Lecture d'un fichier
+Téléchargez ce fichier, qui contient une liste de sites indispensables à la compréhension du monde moderne.
+Écrire un programme qui lit ce fichier et qui construit une page web contenant une liste de liens hypertextes.
+Utilisez la fonction file() qui permet de lire directement un fichier et renvoie son contenu sous forme de tableau. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Liste de sites indispensables</title>
+</head>
+<body>
+	<h1>Liste de sites indispensables à la compréhension du monde moderne</h1>
+	<ul>
+		<?php
+			$file_content = file("liens.txt"); // Lire le contenu du fichier sous forme de tableau
+			foreach($file_content as $line){ // Parcourir le tableau ligne par ligne
+				$data = explode(",", $line); // Séparer le lien et le commentaire avec une virgule
+				$url = trim($data[0]); // Le lien est le premier élément de chaque ligne
+				$comment = trim($data[1]); // Le commentaire est le deuxième élément de chaque ligne
+				echo "<li><a href='$url'>$comment</a></li>"; // Afficher le lien hypertexte et son commentaire
+			}
+		?>
+	</ul>
+</body>
+</html>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Liste des nouveaux utilisateurs inscrits</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Liste des nouveaux utilisateurs inscrits</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Email</th>
+					<th>Téléphone</th>
+					<th>Ville</th>
+					<th>Etat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					$file_url = "http://bienvu.net/misc/customers.csv";
+					$file_content = file($file_url); // Lire le contenu du fichier CSV distant
+
+					foreach($file_content as $line){
+						$data = explode(",", $line); // Découper chaque ligne en utilisant la virgule comme séparateur
+						$surname = $data[0];
+						$firstname = $data[1];
+						$email = $data[2];
+						$phone = $data[3];
+						$city = $data[4];
+						$state = $data[5];
+						echo "<tr><td>$surname</td><td>$firstname</td><td>$email</td><td>$phone</td><td>$city</td><td>$state</td></tr>";
+					}
+				?>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
+<!-- Ce code utilise la fonction file() pour lire le contenu du fichier CSV distant, puis la fonction explode() pour découper chaque ligne en utilisant la virgule comme séparateur. 
+Ensuite, il affiche les données dans un tableau HTML avec Bootstrap pour un affichage amélioré.
+Ce code est sensible aux problèmes de sécurité, tels que les injections de code SQL ou les failles XSS. 
+Il est important de sécuriser l'entrée des données en filtrant et en validant les valeurs avant de les afficher ou de les utiliser. -->
