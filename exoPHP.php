@@ -465,17 +465,28 @@ Utilisez la fonction file() qui permet de lire directement un fichier et renvoie
 	<title>Liste de sites indispensables</title>
 </head>
 <body>
-	<h1>Liste de sites indispensables à la compréhension du monde moderne</h1>
+	<h1>Liste de sites indispensables</h1>
 	<ul>
 		<?php
-			$file_content = file("liens.txt"); // Lire le contenu du fichier sous forme de tableau
-			foreach($file_content as $line){ // Parcourir le tableau ligne par ligne
-				echo "<a href=".$line.">".$line."</a>";
+			// Lecture du fichier
+			$lines = file('sites.txt');
+			// Boucle sur chaque ligne
+			foreach ($lines as $line) {
+				// Suppression des caractères d'espacement en début et fin de ligne
+				$line = trim($line);
+				// Ajout d'un lien hypertexte
+				echo '<li><a href="' . $line . '">' . $line . '</a></li>';
 			}
 		?>
 	</ul>
 </body>
 </html>
+<!-- Explications :
+
+La fonction file() est utilisée pour lire le contenu du fichier "sites.txt" et renvoyer chaque ligne sous forme d'élément d'un tableau.
+Une boucle foreach est utilisée pour parcourir chaque ligne du tableau et construire un lien hypertexte pour chaque site.
+La fonction trim() est utilisée pour supprimer les caractères d'espacement en début et fin de ligne.
+La fonction echo est utilisée pour afficher chaque lien hypertexte dans une liste à puces (<ul>). -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 <!DOCTYPE html>
