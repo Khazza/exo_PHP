@@ -87,7 +87,7 @@ $months = array(
 );
 
 // Affichage du tableau dans un tableau HTML
-echo "<table>";
+echo "<table border=1>";
 echo "<tr><th>Mois</th><th>Nombre de jours</th></tr>";
 foreach ($months as $month => $days) {
     echo "<tr><td>$month</td><td>$days</td></tr>";
@@ -98,7 +98,7 @@ echo "</table>";
 asort($months);
 
 // Affichage du tableau trié dans un tableau HTML
-echo "<br><table>";
+echo "<br><table border=1>";
 echo "<tr><th>Mois</th><th>Nombre de jours</th></tr>";
 foreach ($months as $month => $days) {
     echo "<tr><td>$month</td><td>$days</td></tr>";
@@ -470,10 +470,7 @@ Utilisez la fonction file() qui permet de lire directement un fichier et renvoie
 		<?php
 			$file_content = file("liens.txt"); // Lire le contenu du fichier sous forme de tableau
 			foreach($file_content as $line){ // Parcourir le tableau ligne par ligne
-				$data = explode(",", $line); // Séparer le lien et le commentaire avec une virgule
-				$url = trim($data[0]); // Le lien est le premier élément de chaque ligne
-				$comment = trim($data[1]); // Le commentaire est le deuxième élément de chaque ligne
-				echo "<li><a href='$url'>$comment</a></li>"; // Afficher le lien hypertexte et son commentaire
+				echo "<a href=".$line.">".$line."</a>";
 			}
 		?>
 	</ul>
