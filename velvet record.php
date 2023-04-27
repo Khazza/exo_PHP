@@ -202,3 +202,52 @@ if (isset($_GET['id'])) {
 <a href="edit_disc.php?id=<?php echo $row['disc_id']; ?>" class="btn btn-primary">Modifier</a>
 <a href="delete_disc.php?id=<?php echo $row['disc_id']; ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce disque ?')">Supprimer</a>
 <!-- Notez que le lien de suppression utilise une fonction JavaScript pour afficher une boîte de dialogue de confirmation avant de supprimer le disque. -->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des disques</title>
+    <!-- Ajoutez les liens vers les fichiers CSS et JS si nécessaire -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Liste des disques</h1>
+    <a href="add_disc.php" class="add-button">Ajouter</a>
+
+    <div class="discs-list">
+        <?php
+        // Établir une connexion à la base de données
+        $pdo = new PDO("mysql:host=localhost;dbname=record", "nom_utilisateur", "mot_de_passe");
+
+        // Requête SQL pour sélectionner tous les enregistrements de la table disc
+        $sql = "SELECT * FROM disc";
+        $stmt = $pdo->query($sql);
+
+        // Boucle pour afficher les enregistrements
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            ?>
+            <div class="disc">
+                <img src="<?php echo $row['disc_picture']; ?>" alt="Jaquette">
+                <div class="disc-info">
+                    <h2><?php echo $row['disc_title']; ?></h2>
+                    <p>Artiste: <?php echo $row['artist_name']; ?></p>
+                    <p>Label: <?php echo $row['disc_label']; ?></p>
+                    <p>Année: <?php echo $row['disc_year']; ?></p>
+                    <p>Genre: <?php echo $row['disc_genre']; ?></p>
+                    <a href="details.php?id=<?php echo $row['disc_id']; ?>" class="details-button">Détails</a>
+                </div>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
+
+    <!-- Ajoutez les scripts JS si nécessaire -->
+    <script src="script.js"></script>
+</body>
+</html>
