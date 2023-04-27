@@ -1,4 +1,4 @@
-<!-- Créez le fichier discs.php et connectez-vous à la base de données record. Vous pouvez utiliser PDO pour cela : -->
+<!-- connect base de données record. -->
 <?php
 $host = "localhost";
 $username = "yourusername";
@@ -10,12 +10,11 @@ try {
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
-// Écrivez une requête SQL pour récupérer tous les disques de la table disc et exécutez-la :
+// requête SQL pour récupérer tous les disques de la table disc :
 $sql = "SELECT * FROM disc";
 $stmt = $pdo->query($sql);
 
-// Affichez les résultats de la requête sur la page en utilisant une boucle while. 
-// Vous pouvez diviser les résultats en deux colonnes en utilisant la fonction array_chunk() de PHP :
+// Affiche les résultats de la requête sur la page en utilisant une boucle while. 
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $chunks = array_chunk($results, 20); // Diviser les résultats en deux colonnes de 20 éléments chacune
 
@@ -37,10 +36,10 @@ foreach ($chunks as $chunk) {
 }
 ?>
 
-<!-- // Créez le formulaire d'ajout de disque (add_disc.php) et affichez-le lorsque l'utilisateur clique sur le bouton "ajouter" : -->
+<!-- // formulaire d'ajout de disque (add_disc.php) et l'affiche lorsque l'utilisateur clique sur le bouton "ajouter" : -->
 <a href="add_disc.php" class="btn btn-success">Ajouter</a>
 
-<!-- // Écrivez une requête SQL pour insérer un nouveau disque dans la table disc lorsque le formulaire est soumis et exécutez-la : -->
+<!-- // Requête SQL pour insérer un nouveau disque dans la table disc lorsque le formulaire est soumis et exécutez-la : -->
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
@@ -66,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header("Location: discs.php");
 }
 ?>
-<!-- // Écrivez une page de détails (details.php) qui affiche toutes les informations sur un disque en fonction de l'identifiant passé en paramètre : -->
+<!-- // Page de détails (details.php) qui affiche toutes les informations sur un disque en fonction de l'identifiant passé en paramètre : -->
     <?php
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -97,8 +96,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <a href="edit_disc.php?id=<?php echo $row['disc_id']; ?>" class="btn btn-warning">Modifier</a>
     <a href="delete_disc.php?id=<?php echo $row['disc_id']; ?>" class="btn btn-danger">Supprimer</a>
 
-<!-- // Ajoutez des liens pour la modification et la suppression du disque sur la page de détails. Créez les pages correspondantes (edit_disc.php et delete_disc.php) et 
-    // écrivez les requêtes SQL nécessaires pour mettre à jour ou supprimer le disque en fonction de l'identifiant passé en paramètre. -->
+<!-- // Liens pour la modification et la suppression du disque sur la page de détails. Créez les pages correspondantes (edit_disc.php et delete_disc.php) et 
+    //  requêtes SQL nécessaires pour mettre à jour ou supprimer le disque en fonction de l'identifiant passé en paramètre. -->
     
     <?php
 if (isset($_GET['id'])) {
@@ -181,7 +180,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <button type="submit" class="btn btn-primary">Enregistrer</button>
 </form>
 
-<!-- Ensuite, voici le code pour la page de suppression (delete_disc.php) : -->
+<!-- code pour la page de suppression (delete_disc.php) : -->
 <?php
 require_once 'connection.php';
 
@@ -198,14 +197,12 @@ if (isset($_GET['id'])) {
     exit;
 }
 ?>
-<!-- Enfin, pour ajouter les liens de modification et de suppression dans la page de détails (details.php), il suffit d'ajouter les deux liens suivants en dessous du formulaire : -->
+<!-- ajouter les liens de modification et de suppression dans la page de détails (details.php) -->
 <a href="edit_disc.php?id=<?php echo $row['disc_id']; ?>" class="btn btn-primary">Modifier</a>
 <a href="delete_disc.php?id=<?php echo $row['disc_id']; ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce disque ?')">Supprimer</a>
-<!-- Notez que le lien de suppression utilise une fonction JavaScript pour afficher une boîte de dialogue de confirmation avant de supprimer le disque. -->
 
 
-
-
+----
 
 <!DOCTYPE html>
 <html>
